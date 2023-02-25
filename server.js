@@ -15,6 +15,14 @@ const posts = [{user:"sushil", msg:"all hu akbr"},
 app.get('/',(req,res)=>{
     res.send("server listinng")
 })
+app.post('/pushpost',(req,res)=>{
+    posts.push(req.body.value)
+    res.json({msg:"sucess"})
+})
+app.get('/pushpost',(req,res)=>{
+   
+    res.json(posts)
+})
 app.post('/authenticate',authentication,(req,res)=>{
     res.json(req.user)
 })
